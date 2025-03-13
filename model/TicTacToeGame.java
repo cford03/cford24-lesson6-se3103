@@ -6,7 +6,7 @@ public class TicTacToeGame {
     private Marking turn = Marking.X; // X starts first
     private int moves = 0;
     private Marking winner = null; // O or X, U means draw
-    private GameState state = GameState.INIT;
+    
     private PlayStrategy strategy = PlayStrategy.VsHuman;
 
     public TicTacToeGame() {
@@ -138,13 +138,7 @@ public class TicTacToeGame {
             return null;
         }
     }
-    public GameState getState(){
-        return state;
-    }
-
-    public void setState(GameState state){
-        this.state = state;
-    }
+    
 
     public PlayStrategy getStrategy(){
         return strategy;
