@@ -15,7 +15,7 @@ public class TicTacToeGame {
     public TicTacToeGame() {
 
         reset();
-        setStrategy(new VsHumanStrategy()); //default
+        setStrategy(new VsHumanStrategy(this)); //default
 
     }
 
@@ -37,36 +37,16 @@ public class TicTacToeGame {
         return turn;
     }
 
+    public void incMoves(){
+        ++moves;
+    }
+
     public void play(int position){
-        strategy.play(position)
+        strategy.play(position);
     }
 
     public Marking getWinner() {
         return winner;
-    }
-
-    private void computerPlayer(){
-        int pos = computerPick();
-        board[pos] = turn;
-        ++moves;
-    }
-
-    private int computerPick(){
-        int pos = -1;
-        for(int i = 0; i < board.length; i++){
-            if(board[i] == Marking.U){
-                pos = i;
-                break;
-            }
-
-        }
-        assert pos >= 0 : "Invalid position from computerPick()";
-        return pos;
-    }
-
-    private void humanPlayer(int pos){
-        board[pos] = turn;
-        ++moves;
     }
 
     public void setWinner(){

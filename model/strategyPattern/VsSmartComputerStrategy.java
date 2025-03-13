@@ -3,11 +3,11 @@ package model.strategyPattern;
 import model.Marking;
 import model.TicTacToeGame;
 
-public class VsComputerStrategy implements PlayStrategy {
+public class VsSmartComputerStrategy implements PlayStrategy {
 
     private TicTacToeGame game;
 
-    public VsComputerStrategy(TicTacToeGame game){
+    public VsSmartComputerStrategy(TicTacToeGame game){
         this.game = game;
     }
 
@@ -29,7 +29,7 @@ public class VsComputerStrategy implements PlayStrategy {
 
     private int computerPick(){
         int pos = -1;
-        for(int i = 0; i < game.getBoard().length; i++){
+        for(int i = game.getBoard().length - 1; i >= 0; i--){
             if(game.getBoard()[i] == Marking.U){
                 pos = i;
                 break;
